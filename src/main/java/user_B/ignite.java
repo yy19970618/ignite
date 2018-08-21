@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class ignite {
+public class Ignite {
 //数据库协议地址
   private static String igniteUrl = "jdbc:ignite:thin://127.0.0.1/";
   /**

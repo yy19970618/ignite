@@ -1,17 +1,21 @@
 package main.java.user_B;
 
-public class user_B {
+public class User_B {
   private int user_id;
   private int parent_id;
   public StringBuffer children_ids;
   /**
    * @param user_id
    */
-  public user_B(int user_id) {
+  public User_B(){
+	  this.user_id=-1;
+	  this.parent_id=-1;
+  }
+  public User_B(int user_id) {
       super();
       this.user_id = user_id;
   }
-  public user_B(int user_id,int parent_id,String children_ids) {
+  public User_B(int user_id,int parent_id,String children_ids) {
     super();
     this.user_id = user_id;
     this.children_ids=new StringBuffer(children_ids);

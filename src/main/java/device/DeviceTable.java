@@ -3,10 +3,10 @@ package main.java.device;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import main.java.user_B.ignite;
+import main.java.user_B.Ignite;
 
 public class DeviceTable {
-  public static ignite ign=new ignite();
+  public static Ignite ign=new Ignite();
   /**
    * 对user_b表添加数据
    * @param employee

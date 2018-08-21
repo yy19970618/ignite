@@ -1,6 +1,6 @@
 package main.java.user_C;
 
-public class user_C {
+public class User_C {
   private int user_id;
   private StringBuffer devices;
   private StringBuffer authed_device;
@@ -8,7 +8,7 @@ public class user_C {
   /**
    * @param user_id
    */
-  public user_C(int user_id,String devices,String authed_device,String auth_user_ids) {
+  public User_C(int user_id,String devices,String authed_device,String auth_user_ids) {
     super();
     this.user_id = user_id;
     this.devices=new StringBuffer(devices);

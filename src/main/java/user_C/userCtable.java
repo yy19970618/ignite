@@ -3,17 +3,17 @@ package main.java.user_C;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import main.java.user_B.ignite;
+import main.java.user_B.Ignite;
 
-public class userCtable {
-  public static ignite ign=new ignite();
+public class UserCtable {
+  public static Ignite ign=new Ignite();
   /**
    * 对user_b表添加数据
    * @param employee
    * @return
    * @throws Exception
    */
-  public static int addData(user_C usr) throws Exception{
+  public static int addData(User_C usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "insert into user_C values(?,?,?,?)";
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -31,7 +31,7 @@ public class userCtable {
    * @return
    * @throws Exception 
    */
-  public static int updateData(user_C usr) throws Exception{
+  public static int updateData(User_C usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "update user_C set devices=?,authed_device=? ,auth_user_ids= ? where user_id=?";
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -50,7 +50,7 @@ public class userCtable {
    * @return
    * @throws Exception
    */
-  public static int deleteData(user_C usr) throws Exception{
+  public static int deleteData(User_C usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "delete from user_C where user_id=? ";
       PreparedStatement pstmt = conn.prepareStatement(sql);

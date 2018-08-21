@@ -4,15 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class userBtable {
-  public static ignite ign=new ignite();
+public class UserBtable {
+  public static Ignite ign=new Ignite();
   /**
    * 对user_b表添加数据
    * @param employee
    * @return
    * @throws Exception
    */
-  public static int addData(user_B usr) throws Exception{
+  public static int addData(User_B usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "insert into user_b values(?,?,?)";
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -29,7 +29,7 @@ public class userBtable {
    * @return
    * @throws Exception 
    */
-  public static int updateData(user_B usr) throws Exception{
+  public static int updateData(User_B usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "update user_b set parent_id=?,children_ids=? where user_id=?";
       PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -47,7 +47,7 @@ public class userBtable {
    * @return
    * @throws Exception
    */
-  public static int deleteData(user_B usr) throws Exception{
+  public static int deleteData(User_B usr) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "delete from user_B where user_id=? ";
       PreparedStatement pstmt = conn.prepareStatement(sql);
