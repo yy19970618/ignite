@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import main.java.user_B.Ignite;
+import main.java.tool.*;
 
 public class DeviceTable {
   public static Ignite ign=new Ignite();
@@ -13,13 +14,14 @@ public class DeviceTable {
    * @return
    * @throws Exception
    */
-  public static int addData(device dev) throws Exception{
+  public static int addData(Device dev) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "insert into devices(user_b_id,imei,device_type,device_name) values(?,?,?,?)";
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setLong(2, dev.getImei());
-      pstmt.setString(3, dev.getDevice_type());
-      pstmt.setString(4, dev.getDevice_name());
+      
+      pstmt.setString(3, Serialization.listToStr(dev.getDevice_type()));
+      pstmt.setString(4, Serialization.listToStr(dev.getDevice_name()));
       pstmt.setInt(1, dev.getUser_id());
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);
@@ -31,13 +33,13 @@ public class DeviceTable {
    * @return
    * @throws Exception 
    */
-  public static int updateData(device dev) throws Exception{
+  public static int updateData(Device dev) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "update devices set imei=?,device_type=? ,device_name= ? where user_b_id=?";
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setLong(1, dev.getImei());
-      pstmt.setString(2, dev.getDevice_type());
-      pstmt.setString(3, dev.getDevice_name());
+      pstmt.setString(2, Serialization.listToStr(dev.getDevice_type()));
+      pstmt.setString(3, Serialization.listToStr(dev.getDevice_name()));
       pstmt.setInt(4, dev.getUser_id());
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);
@@ -50,7 +52,7 @@ public class DeviceTable {
    * @return
    * @throws Exception
    */
-  public static int deleteData(device dev) throws Exception{
+  public static int deleteData(Device dev) throws Exception{
       Connection conn = ign.getConnect();
       String sql = "delete from devices where user_b_id=? ";
       PreparedStatement pstmt = conn.prepareStatement(sql);

@@ -1,20 +1,22 @@
 package main.java.device;
 
-public class device {
+import java.util.ArrayList;
+
+public class Device {
 private  int user_b_id;
 private  long imei; 
-private  StringBuffer device_type;
-private  StringBuffer device_name;
+private  ArrayList<Integer> device_type;
+private  ArrayList<Integer> device_name;
 private  int project_id;
 private  boolean enabled;
 private  boolean repayment;
-private  StringBuffer expire_list;
-public device(int user_b_id,long imei,String device_type,String device_name) {
+private  ArrayList<Integer> expire_list;
+public Device(int user_b_id,long imei,ArrayList<Integer> device_type,ArrayList<Integer> device_name) {
   super();
   this.user_b_id=user_b_id;
   this.imei=imei;
-  this.device_type=new StringBuffer(device_type);
-  this.device_name=new StringBuffer(device_name); 
+  this.setDevice_type(device_type);
+  this.setDevice_name(device_name); 
 }
 public  int getUser_id() {
   return user_b_id;
@@ -37,15 +39,7 @@ public  void setImei(long imei) {
 /**
  * @return device_type
  */
-public  String getDevice_type() {
-  return new String(device_type);
-}
-/**
- * @param device_type 要设置的 device_type
- */
-public  void setDevice_type(String device_type) {
-  this.device_type = new StringBuffer(device_type);
-}
+
 /**
  * @return project_id
  */
@@ -57,18 +51,6 @@ public  int getProject_id() {
  */
 public  void setProject_id(int project_id) {
   this.project_id = project_id;
-}
-/**
- * @return device_name
- */
-public  String getDevice_name() {
-  return new String(device_name);
-}
-/**
- * @param device_name 要设置的 device_name
- */
-public  void setDevice_name(String device_name) {
-  this.device_name = new StringBuffer(device_name);
 }
 /**
  * @return enabled
@@ -94,17 +76,24 @@ public  boolean isRepayment() {
 public  void setRepayment(boolean repayment) {
   this.repayment = repayment;
 }
-/**
- * @return expire_list
- */
-public  String getExpire_list() {
-  return new String(expire_list);
+public ArrayList<Integer> getDevice_type() {
+	return device_type;
 }
-/**
- * @param expire_list 要设置的 expire_list
- */
-public  void setExpire_list(String expire_list) {
-  this.expire_list = new StringBuffer(expire_list);
+public void setDevice_type(ArrayList<Integer> device_type) {
+	this.device_type = device_type;
 }
+public ArrayList<Integer> getDevice_name() {
+	return device_name;
+}
+public void setDevice_name(ArrayList<Integer> device_name) {
+	this.device_name = device_name;
+}
+public ArrayList<Integer> getExpire_list() {
+	return expire_list;
+}
+public void setExpire_list(ArrayList<Integer> expire_list) {
+	this.expire_list = expire_list;
+}
+
 
 }

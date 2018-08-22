@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import main.java.user_B.Ignite;
+import main.java.tool.*;
 
 public class UserCtable {
   public static Ignite ign=new Ignite();
@@ -18,9 +19,9 @@ public class UserCtable {
       String sql = "insert into user_C values(?,?,?,?)";
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(1, usr.getuser_Id());
-      pstmt.setString(2, usr.getDevices());
-      pstmt.setString(3,usr.getAuthed_device());
-      pstmt.setString(4,usr.getAuth_user_ids());
+      pstmt.setString(2, Serialization.listToStr(usr.getDevices()));
+      pstmt.setString(3,Serialization.listToStr(usr.getAuthed_device()));
+      pstmt.setString(4,Serialization.listToStr(usr.getAuth_user_ids()));
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);
       return result;
@@ -36,9 +37,9 @@ public class UserCtable {
       String sql = "update user_C set devices=?,authed_device=? ,auth_user_ids= ? where user_id=?";
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setInt(4, usr.getuser_Id());
-      pstmt.setString(1, usr.getDevices());
-      pstmt.setString(2, usr.getAuthed_device());
-      pstmt.setString(3, usr.getAuth_user_ids());
+      pstmt.setString(1, Serialization.listToStr(usr.getDevices()));
+      pstmt.setString(2,Serialization.listToStr(usr.getAuthed_device()));
+      pstmt.setString(3,Serialization.listToStr(usr.getAuth_user_ids()));
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);
       return result;
