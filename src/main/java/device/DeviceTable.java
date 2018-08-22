@@ -20,8 +20,8 @@ public class DeviceTable {
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setLong(2, dev.getImei());
       
-      pstmt.setString(3, Serialization.listToStr(dev.getDevice_type()));
-      pstmt.setString(4, Serialization.listToStr(dev.getDevice_name()));
+      pstmt.setString(3, dev.getDevice_type());
+      pstmt.setString(4, dev.getDevice_name());
       pstmt.setInt(1, dev.getUser_id());
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);
@@ -38,8 +38,8 @@ public class DeviceTable {
       String sql = "update devices set imei=?,device_type=? ,device_name= ? where user_b_id=?";
       PreparedStatement pstmt = conn.prepareStatement(sql);
       pstmt.setLong(1, dev.getImei());
-      pstmt.setString(2, Serialization.listToStr(dev.getDevice_type()));
-      pstmt.setString(3, Serialization.listToStr(dev.getDevice_name()));
+      pstmt.setString(2, dev.getDevice_type());
+      pstmt.setString(3, dev.getDevice_name());
       pstmt.setInt(4, dev.getUser_id());
       int result = pstmt.executeUpdate();
       ign.disConnect(conn);

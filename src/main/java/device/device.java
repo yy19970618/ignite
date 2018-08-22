@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Device {
 private  int user_b_id;
 private  long imei; 
-private  ArrayList<Integer> device_type;
-private  ArrayList<Integer> device_name;
+private  String device_type;
+private  String device_name;
 private  int project_id;
 private  boolean enabled;
 private  boolean repayment;
 private  ArrayList<Integer> expire_list;
-public Device(int user_b_id,long imei,ArrayList<Integer> device_type,ArrayList<Integer> device_name) {
+public Device(int user_b_id,long imei,String device_type,String device_name) {
   super();
   this.user_b_id=user_b_id;
   this.imei=imei;
@@ -76,23 +76,30 @@ public  boolean isRepayment() {
 public  void setRepayment(boolean repayment) {
   this.repayment = repayment;
 }
-public ArrayList<Integer> getDevice_type() {
-	return device_type;
-}
-public void setDevice_type(ArrayList<Integer> device_type) {
-	this.device_type = device_type;
-}
-public ArrayList<Integer> getDevice_name() {
-	return device_name;
-}
-public void setDevice_name(ArrayList<Integer> device_name) {
-	this.device_name = device_name;
-}
+
 public ArrayList<Integer> getExpire_list() {
 	return expire_list;
 }
 public void setExpire_list(ArrayList<Integer> expire_list) {
 	this.expire_list = expire_list;
+}
+public String getDevice_type() {
+	return device_type;
+}
+public void setDevice_type(String device_type) {
+	this.device_type = device_type;
+}
+/**
+ * @return the device_name
+ */
+public String getDevice_name() {
+	return device_name;
+}
+/**
+ * @param device_name the device_name to set
+ */
+public void setDevice_name(String device_name) {
+	this.device_name = device_name;
 }
 
 

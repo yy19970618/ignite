@@ -9,6 +9,8 @@ public class AbstractDAO {
 	/**
 	 * 修改设备的属性
 	 * @param 一个list 
+	 * list的每一行是这样的（
 	 */
+	
 
 }
