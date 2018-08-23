@@ -12,7 +12,7 @@ public class Ignite {
    * @return
    * @throws Exception
    */
- public Connection  getConnect() throws SQLException {
+ public static Connection  getConnect() throws SQLException {
    Connection conn = DriverManager.getConnection(igniteUrl);
   return conn;
  }
@@ -22,7 +22,7 @@ public class Ignite {
    * @throws SQLException
    * @throws Exception
    */
-  public void disConnect(Connection conn) throws SQLException {
+  public static void disConnect(Connection conn) throws SQLException {
     if (conn != null) {
       conn.close();
     }
